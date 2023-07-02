@@ -112,8 +112,7 @@ prog: $(PREREQS)
          $(guile (mkclose))
         $(LINK) < tmp.out
 ```
-A more comprehensive suite of file manipulation procedures is possible of course. You could, for example, maintain multiple output files at the same time by choosing a symbol for each one and using it as the key to a hash table, where the value is a port, then returning the symbol to be stored in a make variable. 
-
+A more comprehensive suite of file manipulation procedures is possible of course. You could, for example, maintain multiple output files at the same time by choosing a symbol for each one and using it as the key to a hash table, where the value is a port, then returning the symbol to be stored in a make variable. <br><br>
 
 LICENSE
 
