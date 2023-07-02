@@ -1,0 +1,15 @@
+; 3.4.2 Local Variables and Environments
+
+; We have seen how to create top level variables using the define syntax (see Defining and Setting Variables). It is often useful to create variables that are more limited in their scope, typically as part of a procedure body. In Scheme, this is done using the let syntax, or one of its modified forms let* and letrec. These syntaxes are described in full later in the manual (see Local Variable Bindings). Here our purpose is to illustrate their use just enough that we can see how local variables work.
+
+; For example, the following code uses a local variable s to simplify the computation of the area of a triangle given the lengths of its three sides.
+
+(define a 5.3)
+(define b 4.7)
+(define c 2.8)
+
+(define area
+  (let ((s (/ (+ a b c) 2)))
+    (sqrt (* s (- s a) (- s b) (- s c)))))
+
+; The effect of the let expression is to create a new environment and, within this environment, an association between the name s and a new location whose initial value is obtained by evaluating (/ (+ a b c) 2). The expressions in the body of the let, namely (sqrt (* s (- s a) (- s b) (- s c))), are then evaluated in the context of the new environment, and the value of the last expression evaluated becomes the value of the whole let expression, and therefore the value of the variable area. 
